@@ -2,6 +2,7 @@ package com.bridgelabz;
 
 import java.util.Scanner;
 
+
 public class AddressBook {
     public static void main(String[] args) {
       AddressBookMain detail = new AddressBookMain();
@@ -36,6 +37,7 @@ public class AddressBook {
                   display = false;
                   break;
               default:
+                  System.out.println("invalid");
                   break;
 
           }
