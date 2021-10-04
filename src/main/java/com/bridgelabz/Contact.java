@@ -111,58 +111,6 @@ public class Contact {
             contactDetailList.add(details);
 
         }
-
-        public void editDetails() {
-            //
-            System.out.println("Confirm your First name");
-            String confirm_Name = scanner.next();
-            for(int i =0; i <contactDetailList.size();i++){
-                if (contactDetailList.get(i).getFirstName().equals(confirm_Name)) {
-                    System.out.println("select the option for edit: ");
-                    System.out.println("\n1.First Name\n2.Last Name\n3.Address\n4.city\n5.State\n6.Zip\n7.Mobile number\n8.Email");
-                    int edit = scanner.nextInt();
-                    switch (edit){
-                        case 1:
-                            System.out.println("enter the  new first name");
-                            contactDetailList.get(i).setFirstName(scanner.next());
-                            break;
-                        case 2:
-                            System.out.println("enter the new last name");
-                            contactDetailList.get(i).setLastName(scanner.next());
-                            break;
-                        case 3:
-                            System.out.println("enter the new address");
-                            contactDetailList.get(i).setAddress(scanner.next());
-                            break;
-                        case 4:
-                            System.out.println("enter the  new city name");
-                            contactDetailList.get(i).setCity(scanner.next());
-                             break;
-                        case 5:
-                            System.out.println("enter the state name");
-                            contactDetailList.get(i).setState(scanner.next());
-                            break;
-                        case 6:
-                            System.out.println("enter the new Zipnumber ");
-                            contactDetailList.get(i).setZipNumber(scanner.next());
-                            break;
-                        case 7:
-                            System.out.println("enter the new phone number");
-                            contactDetailList.get(i).setPhoneNumber(scanner.next());
-                            break;
-                        case 8:
-                            System.out.println("enter the new email id");
-                            contactDetailList.get(i).setEmail(scanner.next());
-                            break;
-                    }
-                    System.out.println("Edited list is: ");
-                    System.out.println(contactDetailList);
-                }
-                else
-                    System.out.println("enter the valid input");
-            }
-        }
-
         public void Display_All(ArrayList<Contact> arr) {
             boolean is_Empty = arr.isEmpty();
             if (is_Empty == true)
