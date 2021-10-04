@@ -15,70 +15,69 @@ public class Contact {
     private String email;
 
     // using getter and setter of for taking the value from privet
-    public String getFirstName() {
+    public String getFirstName()
+    {
         return firstName;
     }
-
-    public void setFirstName(String firstName) {
+    public void setFirstName(String firstName)
+    {
         this.firstName = firstName;
     }
-
-    public String getLastName() {
+    public String getLastName()
+    {
         return lastName;
     }
-
-    public void setLastName(String lastName) {
+    public void setLastName(String lastName)
+    {
         this.lastName = lastName;
     }
-
-    public String getAddress() {
+    public String getAddress()
+    {
         return address;
     }
-
-    public void setAddress(String address) {
+    public void setAddress(String address)
+    {
         this.address = address;
     }
-
-    public String getCity() {
+    public String getCity()
+    {
         return city;
     }
-
-    public void setCity(String city) {
+    public void setCity(String city)
+    {
         this.city = city;
     }
-
     public String getState() {
         return state;
     }
-
     public void setState(String state) {
         this.state = state;
     }
 
-    public String getZipNumber() {
+    public String getZipNumber()
+    {
         return zipNumber;
     }
 
-    public void setZipNumber(String zipNumber) {
+    public void setZipNumber(String zipNumber)
+    {
         this.zipNumber = zipNumber;
     }
-
     public String getPhoneNumber() {
         return phoneNumber;
     }
-
-    public void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(String phoneNumber)
+    {
         this.phoneNumber = phoneNumber;
     }
-
-    public String getEmail() {
+    public String getEmail()
+    {
         return email;
     }
-
-    public void setEmail(String email) {
+    public void setEmail(String email)
+    {
         this.email = email;
     }
-
     @Override
     public String toString() {
         return '\n' + "Contact is" + '\n' + "First Name :: " + firstName + '\n' + "Last  Name :: " + lastName + '\n'
@@ -109,8 +108,70 @@ public class Contact {
             System.out.print("Enter Email ID :: ");
             details.setEmail(scanner.next());
             contactDetailList.add(details);
-
         }
+        public void editDetails() {
+            System.out.println("Confirm your First name");
+            String confirm_Name = scanner.next();
+            for(int i =0; i <contactDetailList.size();i++){
+                if (contactDetailList.get(i).getFirstName().equals(confirm_Name)) {
+                    System.out.println("select the option for edit: ");
+                    System.out.println("\n1.First Name\n2.Last Name\n3.Address\n4.city\n5.State\n6.Zip\n7.Mobile number\n8.Email");
+                    int edit = scanner.nextInt();
+                    switch (edit){
+                        case 1:
+                            System.out.println("enter the  new first name");
+                            contactDetailList.get(i).setFirstName(scanner.next());
+                            break;
+                        case 2:
+                            System.out.println("enter the new last name");
+                            contactDetailList.get(i).setLastName(scanner.next());
+                            break;
+                        case 3:
+                            System.out.println("enter the new address");
+                            contactDetailList.get(i).setAddress(scanner.next());
+                            break;
+                        case 4:
+                            System.out.println("enter the  new city name");
+                            contactDetailList.get(i).setCity(scanner.next());
+                             break;
+                        case 5:
+                            System.out.println("enter the state name");
+                            contactDetailList.get(i).setState(scanner.next());
+                            break;
+                        case 6:
+                            System.out.println("enter the new Zipnumber ");
+                            contactDetailList.get(i).setZipNumber(scanner.next());
+                            break;
+                        case 7:
+                            System.out.println("enter the new phone number");
+                            contactDetailList.get(i).setPhoneNumber(scanner.next());
+                            break;
+                        case 8:
+                            System.out.println("enter the new email id");
+                            contactDetailList.get(i).setEmail(scanner.next());
+                            break;
+                    }
+                    System.out.println("Edited list is: ");
+                    System.out.println(contactDetailList);
+                }
+                else
+                    System.out.println("enter the valid input");
+            }
+        }
+       public boolean deleteContact(String name){
+            int delete = 0;
+            for (Contact contact : contactDetailList){
+                if (contact.getFirstName().equals(name)){
+                    contactDetailList.remove(contact);
+                    delete = 1;
+                    break;
+                }
+            }
+            if (delete == 1)
+                return true;
+            else
+                return false;
+       }
         public void Display_All(ArrayList<Contact> arr) {
             boolean is_Empty = arr.isEmpty();
             if (is_Empty == true)
